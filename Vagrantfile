@@ -7,6 +7,9 @@ end
 Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
+  config.vm.define :lfs207 do |foo|
+  end
+
   config.vm.provider "qemu" do |qe, override|
     if is_arm64()
       qe.image_path = "#{vagrant_cwd}/boxes/bento-ubuntu-20.04-arm64.qcow2"
