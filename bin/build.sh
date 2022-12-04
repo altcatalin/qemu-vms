@@ -4,7 +4,7 @@ set -x
 ARCH=`uname -m`
 BOX_PROVIDER="parallels"
 
-if [ "$ARCH" == "amd64" ]; then
+if [ "$ARCH" == "arm64" ]; then
     BOX="bento/ubuntu-20.04-arm64"
     BOX_VERSION="202112.19.0"
     QCOW2_FILENAME="bento-ubuntu-20.04-arm64.qcow2"
