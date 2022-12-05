@@ -23,4 +23,15 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.provision "packages", type: "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y build-essential
+  SHELL
+
+  config.vm.provision "file", source: "scripts", destination: "scripts"
+
+  config.vm.provision "scripts", type: "shell", privileged: false, inline: <<-SHELL
+    cd ~/scripts/labs/17.2 && gcc -o wastemem wastemem.c && chmod +x wastemem
+  SHELL
+
 end
